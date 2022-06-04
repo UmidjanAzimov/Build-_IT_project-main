@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yangiliklar</title>
+    <style>
+        .card{
+            background: transparent;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 12px;
+            transition: all .40s;
+        }
+        .card:hover{
+             background: linear-gradient(rgba(112, 148, 15, 0) 0%,#e4e4a4cd);
+        }
+        .row{
+            background: #ffffff;
+            box-shadow: 18px 0px 87px 0px rgb(10 15 70 / 7%);
+            border-radius: 22px;
+            padding: 35px 35px 45px 25px;
+            transition: ease .45s;
+            cursor: pointer;
+
+        }
+    </style>
+    
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for post in object_list %}
+    <div style="font-family: Poppins;" class="container align-items-center">
+        <div class="card mb-3" style="max-width: 940px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img src="{{post.photo.url}}" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <p class="card-text">{{post.summery}}...</p>
+                        <a href="{% url 'post_detail' post.pk %}">Batafsil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    <br>
+
+
+
+    
+
+
+
+
+
+
+    <div class="container align-items-center">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+            {% if page_obj.has_previous %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">orqaga</a></li>
+            {% endif %}
+    
+            <span class="page-link">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+    
+            {% if page_obj.has_next %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">keyingisi</a></li>
+            {% endif %}
+        </span>
+    </ul>
+</nav>
+    </div>
+    <footer style="background-color: gainsboro" class="bg-footer pt-5">
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="/static/img/Logo2.png" class="px-2" alt="">
+                    <div class="my-3 d-flex justify-content-sm-around w-75 px-2">
+                        <img src="/static/img/Facebook.png" alt="">
+                        <img src="/static/img/Telegram.png" alt="">
+                        <img src="/static/img/Youtube.png" alt="">
+                        <img src="/static/img/Instagram.png" alt="">
+                    </div>
+                    <p style="font-size: 30px; font-family: cursive;" class="student-font">
+                       Build IT  
+                    </p>
+                    <div class="my-3 d-flex justify-content-sm-around w-75 px-2">
+                      <img width="30px" height="30px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR20U3upyVoRXpwKIl1MJzw9wubKlWwVv34Qw&usqp=CAU" alt="">
+                      <img width="30px" height="30px" src="https://www.facebook.com/images/fb_icon_325x325.png" alt="">
+                      <img width="30px" height="30px" src="data:image/png;base64,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" alt="">
+                      <img width="30px" height="30px" src="https://cdn-icons-png.flaticon.com/512/152/152810.png" alt="">
+                  </div>
+                   <p>
+      
+                     Loyihaning maqsadi
+                     Qurilish sohasida optimallikka erishish. 
+                     Qurilish xizmatlari sifatini oshirish. 
+                     Malakali mutaxassislarni jalb qilish. 
+                     Qurilishda IT sohasini qōllash.
+                    </p>
+                     
+                </div>
+                <div class="col-md-3">
+                    <ul class="text-secondary p-0">
+                       <li class="nav-link not-bold"> Menu</li>
+                        <a href="/"><li class="nav-link">Bosh sahifa</li></a>
+                        <a href="/"><li class="nav-link">Biz haqimizda</li></a>
+                        <a href="/"><li class="nav-link">Yangiliklar</li></a>
+                        <a href="/"><li class="nav-link">Mutaxasislar</li></a>
+                        <a href="/"><li class="nav-link">Firmalar</li></a>
+                    </ul>
+                </div>
+                <div class="col-md-3">    
+                <ul class="text-secondary p-0">
+                    <li class="not-bold nav-link">Acconunt</li>
+                    <li class="nav-link">Tizimga kirish</li>
+                    <li class="nav-link">Ro`yxatdan o`tish</li>
+                </ul>
+            </div>
+            <div class="col-md-3"> 
+            <ul class="text-secondary p-0">
+                <li class="nav-link not-bold"> Kontaktlar</li>
+               <a href="loremlipsum@gmail.com">
+                <li class="nav-link" style="font-size:14px;"><i class="far fa-envelope"></i>loremlipsum@gmail.com</li>
+               </a>
+                <a href="tel:+998951430013">
+                <li class="nav-link"><i class="fas fa-phone-alt"></i> Qo’ng’iroq buyurtma qilish</li>
+                <li class="nav-link"><h6 class="not-bold">+998 99 999 99 99</h6></li>
+                </a> 
+            </ul>
+        </div>
+            </div>
+        </div>
+      </footer>
+{% endblock content %}
+</body>
+</html>

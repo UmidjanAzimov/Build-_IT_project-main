@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+</head>
+<body>
+{% extends 'base.html' %}
+{% block content %}
+<div class="container align-items-center">
+    <div class="card mb-3">
+        {% if object.photo %}
+        <img width="370px" height="570px" src="{{object.photo.url }}" class="card-img-top" alt="...">
+        {% endif %}
+        <div class="card-body">
+            <h4 class="card-title">{{object.title}}</h4>
+            <p class="card-text">{{object.summery}}</p>
+            <p class="card-text"><small class="text-muted">{{object.body}}</small></p>
+        </div>
+
+    </div>
+</div>
+
+{% endblock content  %}
+</body>
+</html>

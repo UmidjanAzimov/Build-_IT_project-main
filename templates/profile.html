@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+
+<style>
+    body{
+        margin-top: 20;
+        background-color: lightgrey;
+    }
+
+    .main{
+        padding: 15px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .topbar{
+        background-color: teal;
+        overflow: hidden;
+    }
+
+    .topbar a{
+        float: right;
+        color: whitesmoke;
+        text-align: center ;
+        padding: 20px 26px;
+        text-decoration: none;
+        font-size: 26px;
+    }
+
+    .sidebar{
+        background-color: #333;
+        color: white;
+        height: 100%;
+    }
+
+    .sidebar a{
+        margin-left: 10px;
+        display: block;
+        color: white;
+        padding-bottom: 10px;
+        font-size: 30px;
+        text-decoration: none;
+
+    }
+
+    .card{
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .content{
+        background-color: whitesmoke;
+    }
+    .card-body{
+        background-color: #555;
+    }
+    .card-body1{
+        background-color: white;
+    }
+    .a2{
+        margin-right: 130px;
+        float: right;
+    }
+    .image{
+        border-radius: 100px;
+    }
+</style>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <div class="a2">
+        <a style="font-size:18px" class="btn btn-danger" href="{% url 'logout' %}">chiqish</a>
+    </div>
+{% endif %}
+<div class="container">
+
+        <div class="row">
+            <div class="col-md-4 mt-1">
+                <div class="card text-center sidebar">
+                    <div class="card-body">
+                        {% if user.is_authenticated %}
+                            <img src="{{user.profile_photo.url}}" width="200px" height="200px" class="image">
+                        {% endif %}
+                        <div class="mt-3">
+                            <h1>{{user.username}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 mt-4">
+               <div class="card mb-4 content">
+                   <h1 class="m-3 pt-2">About</h1>
+                    <div class="card-body1">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5 style="padding: 5px;">Email</h5>
+                            </div>
+                            <div class="col-md-9 text-secondary">
+                                {{user.email}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                           <div class="col-md-3">
+                             <h5 style="padding: 5px;">Phone</h5>
+                           </div>
+                           <div class="col-md-9 text-secondary">
+                               {{user.telefon}}
+                           </div>
+                        </div>
+                    </div>
+               </div>
+               <div class="card mb-3 content">
+                   <h1 class="m-3">Recent Projects</h1>
+                   <div class="card-body1">
+                       <div class="row">
+                           <div class="col-md-3">
+                               <h5 style="padding: 5px;">Project name</h5>
+                           </div>
+                           <div class="col-md-9 text-secondary">
+                               Project description
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Mutaxasis</title>
+    <style>
+        .outsider{
+            width: 60%;
+            margin: 0 auto;
+        }
+        .innner-card{
+            border: 1px solid gray;
+            box-shadow: -1px 3px 10px;
+            padding: 10px;
+            border-radius: 20px;
+        }
+        .submitter{
+            width: 30%;
+            height: 30%;
+            font-size: 130%;
+            border: 0px;
+            border-radius: 10px;
+            background-color: green;
+            box-shadow: -2px 2px 10px;
+        }
+    </style>
+
+</head>
+<body>
+    {% extends 'base.html' %}
+    {% load crispy_forms_tags %}
+    {% block content %}
+    <div class="outsider">
+        <center><h1>Mutaxasis sifatida e'loningizni joylashtirishingiz  mumkin !</h1></center>
+        <br><br>
+        {% if submitted %}
+            <h1>Sizning buyurtmangiz muvaffaqiyatli joylashtirildi !!! </h1>
+        {% else %}
+            <div class="innner-card">
+                <br>
+                <form style="width: 90%; margin: 0 auto;" enctype="multipart/form-data" action="" method="POST">
+                    {% csrf_token %}
+                    {{ mutaxasis|crispy }}
+                    <br>
+                    <center><button class="submitter" type="submit"><span style="color: white;">E'lon joylashtirish</span></button></center>
+                </form>
+            </div>
+        {% endif %}
+
+    </div>
+    <br><br><br><br>
+    {% endblock content %}
+</body>
+</html>

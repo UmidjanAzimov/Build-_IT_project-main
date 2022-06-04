@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mutaxasis</title>
+    <style>
+        .detail{
+            width: 70%;
+        }
+        .image{
+            width: 60%;
+            border-radius: 20px;
+        }
+        .name{
+            font-size: 200%;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+        .email{
+            margin-right: 30px;
+        }
+        p{
+            font-size: 30px;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+<center>
+<div class="detail">
+    <img src="{{object.rasm.url }}" class="image" alt="...">
+    <br><br>
+    <p class="name">{{object.ism}} {{object.familya}} {{object.otasining_ismi}}</p>
+    <a href="mailto:{{ object.email }}"><img width="5%" src="/static/img/email.png" class="email-img"></a>
+    <a href="tel:{{ object.telefon }}"><img width="5%" src="/static/img/telephone.png" class="telephone"></a>
+    <br><br>
+    <p class="telefon">Phone📱: {{object.telefon}}</p>
+    <p class="email">Email📝 : {{object.email}}</p>
+    <p class="day">Day of birth 📆: {{object.tugilgan_sana}}</p>
+    <p class="lavozim">Lavozim: {{object.lavozim}}</p>
+    <p class="yunalish">Yo'nalish: {{object.yonalish}}</p>
+    <p class="postfolio">Portfolio🗃:</p>
+    <img width="100%;" src="{{object.portfolio.url }}" class="portfolio-img" alt="...">
+    <p class="sert">Sertfikat</p>
+    <img width="100%" src="{{object.sertifikat.url }}" class="sert-img" alt="...">
+    <p class="til">Til📋: {{object.til}}</p>
+</div>
+</center>
+
+
+
+
+
+{% endblock content  %}
+</body>
+</html>
