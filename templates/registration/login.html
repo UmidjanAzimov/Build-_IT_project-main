@@ -7,15 +7,15 @@
     <title>log in</title>
     <style>
         .form{
-            padding: 10px;
+            padding: 20px;
             box-shadow: -1px 3px 10px;
             border-radius: 10px;
+            background-color: white;
         }
         .grid{
             margin: 0 auto;
-            width: 380px;
+            width: 40%;
             border-radius: 10px;
-            background: white;
         }
         .btn1{
             background-color: green;
@@ -27,7 +27,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-image: url(/static/img/background.jpg)">
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -35,13 +35,17 @@
     <div class="grid">
         <br>
         <form class="form" method="post">
-            <center><h2>KIRISH</h2></center>
+            <center><h2>LOGIN</h2></center>
             <br>
             {% csrf_token %}
             {{ form|crispy }}
             <br>
-            <center><button type="submit" class="btn1">KIRISH</button></center>
-            <br>
+            <center>
+                <button type="submit" class="btn1">LOGIN</button>
+                <br>
+                <br>
+                <h5>If you don't have any account <a href="{% url 'accounts:addsign' %}">Register</a></h5>
+            </center>
       </form>
   </div>
     <br>

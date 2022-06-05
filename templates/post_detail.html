@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News</title>
 </head>
-<body>
+<body style="background-image: url('/static/img/background.jpg');">
 {% extends 'base.html' %}
 {% block content %}
 <div class="container align-items-center">
@@ -16,8 +16,7 @@
         {% endif %}
         <div class="card-body">
             <h4 class="card-title">{{object.title}}</h4>
-            <p class="card-text">{{object.summery}}</p>
-            <p class="card-text"><small class="text-muted">{{object.body}}</small></p>
+            <h4 class="card-text"><small class="text-muted">{{object.body}}</small></h4>
         </div>
 
     </div>

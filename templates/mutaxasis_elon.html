@@ -28,7 +28,7 @@
     </style>
 
 </head>
-<body>
+<body style="background-image: url('/static/img/background.jpg');">
     {% extends 'base.html' %}
     {% load crispy_forms_tags %}
     {% block content %}
@@ -38,7 +38,7 @@
         {% if submitted %}
             <h1>Sizning buyurtmangiz muvaffaqiyatli joylashtirildi !!! </h1>
         {% else %}
-            <div class="innner-card">
+            <div class="innner-card" style="background-color: white">
                 <br>
                 <form style="width: 90%; margin: 0 auto;" enctype="multipart/form-data" action="" method="POST">
                     {% csrf_token %}

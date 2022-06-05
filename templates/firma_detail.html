@@ -28,7 +28,7 @@
         }
     </style>
 </head>
-<body>
+<body style="background-image: url('/static/img/background.jpg');">
 {% extends 'base.html' %}
     {% block content %}
     <div class="contain">
@@ -39,7 +39,7 @@
             <a href="tel:{{ object.mobile_number }}"><img src="/static/img/telephone.png" class="telephone"></a>
         </center>
         <br>
-        <center style="padding: 20px; border: 1px solid gray; border-radius: 20px; box-shadow: -1px 2px 5px;">
+        <center style="background-color: white; padding: 20px; border: 1px solid gray; border-radius: 20px; box-shadow: -1px 2px 5px;">
             <label>Tashkilot nomi</label>
             <h2 class="card-title">{{object.nomi}}</h2>
             <hr style="width:150px;">

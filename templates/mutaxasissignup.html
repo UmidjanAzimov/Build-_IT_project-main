@@ -7,18 +7,17 @@
     <title>Ro'yxatdan o'tish</title>
     <style>
         .outer{
-            width: 380px;
+            width: 50%;
             margin: 0 auto;
             border-radius: 10px;
             background-color: white;
         }
 
         .mb-3{
-            width: 350px;
+            width: 90%;
             margin: 0 auto;
         }
         .btn1{
-            margin-left: 100px;
             height: 45px;
             border-radius: 5px;
             background-color: green;
@@ -26,8 +25,8 @@
             color: white;
         }
  </style>
-    <head>
-<body style="background: linear-gradient(gray, white, gray);">
+</head>
+<body style="background-image: url(/static/img/background.jpg)">
 {% extends 'base.html'  %}
 {% load crispy_forms_tags %}
 {% block content %}
@@ -38,8 +37,12 @@
             <form enctype="multipart/form-data" method="post">{% csrf_token %}
                 {{ form|crispy }}
                 <br>
+                <center>
                 <button class="btn1" type="submit" value="upload/">Ro'yhatdan o'tish</button>
                 <br>
+                <br>
+                <h5>If you have account already <a href="{% url 'login' %}">Login</a></h5>
+                </center>
             </form>
         </div>
         <br>

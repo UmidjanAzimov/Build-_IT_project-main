@@ -28,7 +28,7 @@
     </style>
 
 </head>
-<body>
+<body style="background-image: url('/static/img/background.jpg');">
     {% extends 'base.html' %}
     {% load crispy_forms_tags %}
     {% block content %}
@@ -36,7 +36,7 @@
     <div class="outsider">
         <center><h1>Firma sifatida e'loningizni joylashtirishingiz  mumkin !</h1></center>
         <br><br>
-        <div class="innner-card">
+        <div class="innner-card" style="background-color: white">
             <br>
             <form enctype="multipart/form-data" style="width: 90%; margin: 0 auto;" method="POST">
                 {% csrf_token %}
