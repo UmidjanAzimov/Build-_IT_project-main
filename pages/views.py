@@ -8,6 +8,9 @@ from django.http import HttpResponse, JsonResponse
 from .forms import BuyurtmachiForm, MutaxassisForm, FirmaForm
 
 # Create your views here.
+class Tender(TemplateView):
+    template_name = 'tender.html'
+
 class Profile(TemplateView):
     template_name = 'profile.html'
 

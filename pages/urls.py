@@ -16,7 +16,8 @@ urlpatterns = [
 
     path('<int:pk>/firma',FirmaDetail.as_view(), name='firma_detail'),
 
-    path('<int:pk>/m',Mutaxasislar_Detail.as_view(),name='mutaxasis_detail'),
+    path('<int:pk>/m',Mutaxasislar_Detail.as_view(), name='mutaxasis_detail'),
+    path('online_tender/', Tender.as_view(), name='tender'),
     
     path('<int:pk>/list',ListDetailView.as_view(),name='list_detail'),
     path('list/bajarish',ListPageDetailView.as_view(),name='buyurtma_detail'),

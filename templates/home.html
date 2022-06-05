@@ -1,6 +1,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
+{% extends 'base.html' %}
+
+{% block content %}
 <head>
   <!--Start of Tawk.to Script-->
 <script type="text/javascript">
@@ -153,22 +156,30 @@
             width: 7%;
             height: 100%;
         }
+        .tender{
+            float: right;
+            width: 3.7%;
+            margin-top: 30%;
+            margin-left: 91%;
+            background-color: white;
+            padding: 2px;
+            border-radius: 50px;
+            position: fixed;
+        }
     </style>
 </head>
 <body>
-{% extends 'base.html' %}
-
-{% block content %}
+<a href="{% url 'tender' %}"><img class="tender" src="/static/img/handshake.png"></a>
 <div class="social-cont">
     <img class="right-arrow" src="/static/img/right.png">
     <br>
-    <img class="socials" src="/static/img/telegram2.png">
+    <a href="tg://resolve?domain=MrScrudgy"><img class="socials" src="/static/img/telegram2.png"></a>
     <br><br>
-    <img class="socials" src="/static/img/twitter.png">
+    <a href="tg://resolve?domain=MrScrudgy"><img class="socials" src="/static/img/twitter.png"></a>
     <br><br>
-    <img class="socials" src="/static/img/instagram1.png">
+    <a href="instagram://user?username=pjrfigueiredo"><img class="socials" src="/static/img/instagram1.png"></a>
     <br><br>
-    <img class="socials" src="/static/img/youtube1.png">
+    <a href=""><img class="socials" src="/static/img/youtube1.png"></a>
 
 </div>
 <div class="container align-items-center">
